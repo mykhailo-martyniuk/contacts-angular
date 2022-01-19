@@ -1,0 +1,39 @@
+<div *ngIf="!isEdit" class="contact-container">
+  <mat-card>
+    <mat-card-title>{{ name }} {{ lastName }}</mat-card-title>
+    <mat-card-content>
+      <p>Phone number: {{ phoneNumber }}</p>
+      <p>Email: {{ email }}</p>
+      <p>Address: {{ address }}</p>
+      <p>Date of birth: {{ dateOfBirth }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        routerLink=""
+        routerLinkActive="active"
+        (click)="deleteContact()"
+        mat-raised-button
+        color="warn"
+      >
+        delete
+      </button>
+      <button (click)="onEdit()" mat-raised-button color="primary">edit</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div *ngIf="isEdit" class="contact-container">
+  <button (click)="onEdit()" mat-raised-button>
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <app-create-new-contact
+    [name]="name"
+    [phoneNumber]="phoneNumber"
+    [lastName]="lastName"
+    [address]="address"
+    [dateOfBirth]="dateOfBirth"
+    [email]="email"
+    [isEdit]="true"
+    [id]="id"
+    (edit)="onEdit()"
+  ></app-create-new-contact>
+</div>

@@ -1,0 +1,110 @@
+<div>
+  <div [ngClass]="{ 'create-container': !isEdit, 'create-container-editable': isEdit }">
+    <mat-form-field appearance="fill">
+      <mat-label>First name</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="name"
+        name="name"
+        required
+        #nameV="ngModel"
+      />
+      <mat-error [hidden]="nameV.valid || nameV.untouched">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name:</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="lastName"
+        name="lastName"
+        #lastNameV="ngModel"
+        required
+      />
+      <mat-error [hidden]="lastNameV.valid || lastNameV.untouched">
+        Last Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number:</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="phoneNumber"
+        name="phoneNumber"
+        required
+        #phoneV="ngModel"
+        pattern="[0-9]{10}"
+      />
+      <mat-error [hidden]="phoneV.valid || phoneV.untouched">
+        Must contain <strong>10</strong> digits
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email::</mat-label>
+      <input
+        matInput
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        required
+        #emailV="ngModel"
+        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+      />
+      <mat-error [hidden]="emailV.valid || emailV.untouched">
+        Must contain <strong>@</strong> and <strong>.</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Address:</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="address"
+        name="address"
+        #addressV="ngModel"
+        required
+        pattern="^.{3,200}$"
+      />
+      <mat-error [hidden]="addressV.valid || addressV.untouched">
+        minimal length <strong>3</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Date of birth:</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="dateOfBirth"
+        name="dateOfBirth"
+        required
+        placeholder="11.11.1111"
+        #dateOfBirthV="ngModel"
+        pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"
+      />
+      <mat-error [hidden]="dateOfBirthV.valid || dateOfBirthV.untouched">
+        <strong>DD.MM.YY</strong> or <strong>DD.MM.YYYY</strong>
+      </mat-error>
+    </mat-form-field>
+    <button
+      [disabled]="
+        nameV.invalid ||
+        emailV.invalid ||
+        phoneV.invalid ||
+        lastNameV.invalid ||
+        dateOfBirthV.invalid ||
+        addressV.invalid
+      "
+      (click)="isEdit ? onClickEdit() : onClickAdd()"
+      mat-raised-button
+      color="primary"
+      [ngClass]="{ 'create-button': !isEdit, 'edit-button': isEdit }"
+    >
+      {{ isEdit ? 'edit' : 'Add contact' }}
+    </button>
+  </div>
+</div>

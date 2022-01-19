@@ -1,0 +1,17 @@
+<h2 class="filter-title">Filter</h2>
+<app-search (searchChange)="search($event)"></app-search>
+<h1 class="contacts-title">Contacts</h1>
+<div class="contacts-container">
+  <app-contact
+    *ngFor="
+      let contact of contacts
+        | filter: 'name':searchName
+        | filter: 'lastName':searchLastName
+        | filter: 'phoneNumber':searchPhoneNumber
+    "
+    [name]="contact.name"
+    [lastName]="contact.lastName"
+    [phoneNumber]="contact.phoneNumber"
+    [id]="contact.id"
+  ></app-contact>
+</div>

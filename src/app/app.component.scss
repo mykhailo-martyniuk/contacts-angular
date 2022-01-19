@@ -1,0 +1,17 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 30px 80px 30px;
+}
+.toolbar {
+  position: fixed;
+  z-index: 2;
+  display: flex;
+}
+.toolbar-btn-block {
+  margin-left: auto;
+}
+
+.sidenav-container {
+  height: 100%;
+}

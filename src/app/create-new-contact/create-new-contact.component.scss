@@ -1,0 +1,36 @@
+.create-container {
+  padding: 90px 5px 0 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-container > * {
+  min-width: 300px;
+}
+
+.create-button {
+  margin-top: 40px;
+
+  display: block;
+  width: 100%;
+}
+
+.create-container-editable {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-container-editable > * {
+  min-width: 300px;
+}
+
+.edit-button {
+  margin-top: 40px;
+
+  display: block;
+  min-width: 300px;
+}

@@ -1,0 +1,40 @@
+<div class="search-container">
+  <div class="input-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Search by name</mat-label>
+      <input
+        matInput
+        type="text"
+        name="searchByName"
+        [(ngModel)]="name"
+        placeholder="name"
+        (input)="search()"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Search by last name</mat-label>
+      <input
+        matInput
+        type="text"
+        name="searchByLastName"
+        [(ngModel)]="lastName"
+        placeholder="last name"
+        (input)="search()"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Search by phone number</mat-label>
+      <input
+        matInput
+        type="text"
+        name="searchByPhoneNumber"
+        [(ngModel)]="phoneNumber"
+        placeholder="380000000"
+        (input)="search()"
+      />
+    </mat-form-field>
+  </div>
+  <button (click)="clear()" mat-raised-button color="primary">
+    Clear Filter
+  </button>
+</div>
